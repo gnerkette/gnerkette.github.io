@@ -78,9 +78,7 @@
         {
 
             var labelXml = '<?xml version="1.0" encoding="utf-8"?>\
-<DesktopLabel Version="1">\
-  <DYMOLabel Version="3">\
-    <Description>DYMO Label</Description>\
+<DieCutLabel Version="8.0" Units="twips">\
     <Orientation>Landscape</Orientation>\
     <LabelName>Address30251</LabelName>\
     <InitialLength>0</InitialLength>\
@@ -438,7 +436,7 @@
       </DataRow>\
     </Rows>\
   </DataTable>\
-</DesktopLabel>;
+</DieCutLabel>;
             return labelXml;
         }
 
