@@ -61,7 +61,7 @@
 
             var script = document.createElement('script');
 
-            script.setAttribute('src', 'https://spreadsheets.google.com/feeds/cells/1NuAevHWdpsWChNk20iWUYzTw9iJY1vRmnws7LSjGLv0/1/public/full?alt=json');
+            script.setAttribute('src', 'https://spreadsheets.google.com/feeds/list/1NuAevHWdpsWChNk20iWUYzTw9iJY1vRmnws7LSjGLv0/1/public/full?alt=json-in-script&callback=window._loadSpreadSheetDataCallback');
             script.setAttribute('id', 'printScript');
             script.setAttribute('type', 'text/javascript');
             document.documentElement.firstChild.appendChild(script);
