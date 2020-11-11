@@ -86,41 +86,54 @@
 		                            <RoundRectangle X="0" Y="0" Width="1581" Height="5040" Rx="270" Ry="270" />\
 	                            </DrawCommands>\
 	                            <ObjectInfo>\
-		                            <AddressObject>\
-			                            <Name>Address</Name>\
+		                            <BarcodeObject>\
+			                            <Name>ItemCode</Name>\
 			                            <ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
 			                            <BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
 			                            <LinkedObjectName></LinkedObjectName>\
 			                            <Rotation>Rotation0</Rotation>\
 			                            <IsMirrored>False</IsMirrored>\
 			                            <IsVariable>True</IsVariable>\
-			                            <HorizontalAlignment>Left</HorizontalAlignment>\
-			                            <VerticalAlignment>Middle</VerticalAlignment>\
+			                            <Text>1234</Text>\
+			                            <Type>Code128Auto</Type>\
+			                            <Size>Small</Size>\
+			                            <TextPosition>Bottom</TextPosition>\
+			                            <TextFont Family="Arial" Size="6" Bold="False" Italic="False" Underline="False" Strikeout="False" />\
+			                            <CheckSumFont Family="Arial" Size="7.3125" Bold="False" Italic="False" Underline="False" Strikeout="False" />\
+			                            <TextEmbedding>None</TextEmbedding>\
+			                            <ECLevel>0</ECLevel>\
+			                            <HorizontalAlignment>Center</HorizontalAlignment>\
+			                            <QuietZonesPadding Left="0" Top="0" Right="0" Bottom="0" />\
+		                            </BarcodeObject>\
+		                            <Bounds X="331" Y="680.31494140625" Width="4622" Height="765.708679199219" />\
+	                            </ObjectInfo>\
+	                            <ObjectInfo>\
+		                            <TextObject>\
+			                            <Name>Description</Name>\
+			                            <ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+			                            <BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
+			                            <LinkedObjectName></LinkedObjectName>\
+			                            <Rotation>Rotation0</Rotation>\
+			                            <IsMirrored>False</IsMirrored>\
+			                            <IsVariable>True</IsVariable>\
+			                            <HorizontalAlignment>Center</HorizontalAlignment>\
+			                            <VerticalAlignment>Top</VerticalAlignment>\
 			                            <TextFitMode>ShrinkToFit</TextFitMode>\
 			                            <UseFullFontHeight>True</UseFullFontHeight>\
 			                            <Verticalized>False</Verticalized>\
 			                            <StyledText>\
 				                            <Element>\
-					                            <String>DYMO\
-                                        828 San Pablo Ave Ste 101\
-                                        Albany, CA 94706-1678</String>\
-                                                            <Attributes>\
-                                                                <Font Family="Arial" Size="12" Bold="False" Italic="False" Underline="False" Strikeout="False" />\
-                                                                <ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
-                                                            </Attributes>\
-                                                        </Element>\
-                                                    </StyledText>\
-                                                    <ShowBarcodeFor9DigitZipOnly>False</ShowBarcodeFor9DigitZipOnly>\
-                                                    <BarcodePosition>AboveAddress</BarcodePosition>\
-                                                    <LineFonts>\
-                                                        <Font Family="Arial" Size="12" Bold="False" Italic="False" Underline="False" Strikeout="False" />\
-                                                        <Font Family="Arial" Size="12" Bold="False" Italic="False" Underline="False" Strikeout="False" />\
-                                                        <Font Family="Arial" Size="12" Bold="False" Italic="False" Underline="False" Strikeout="False" />\
-                                                    </LineFonts>\
-                                     </AddressObject>\
-                                     <Bounds X="332" Y="150" Width="4455" Height="1260" />\
-                                  </ObjectInfo>\
-                             </DieCutLabel>';
+					                            <String>ItemDescription</String>\
+					                            <Attributes>\
+						                            <Font Family="Arial" Size="12" Bold="False" Italic="False" Underline="False" Strikeout="False" />\
+						                            <ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+					                            </Attributes>\
+				                            </Element>\
+			                            </StyledText>\
+		                            </TextObject>\
+		                            <Bounds X="331" Y="163" Width="4622" Height="341.566925048828" />\
+	                            </ObjectInfo>\
+                            </DieCutLabel>';
             return labelXml;
         }
 
