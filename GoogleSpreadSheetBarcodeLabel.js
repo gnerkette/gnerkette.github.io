@@ -78,7 +78,7 @@
                 img.src = imageurl;
             }
 		    
-            }
+            
 
             return labelSet;
         }
