@@ -82,9 +82,9 @@
                 var img = new Image();
                 img.crossOrigin = 'anonymous';
            
-                    
+            	img.onload = function(){        
                 img.src = 'https://gnerkette.github.io/631060788982.jpg';
-		
+		}
             }
             catch(e)
             {
