@@ -302,7 +302,7 @@
                 if (!labelSet)
                     throw "Label data is not loaded";
 
-		getImage();
+		//getImage();
                 label.print(printersSelect.value, '', labelSet);
 //                var records = labelSet.getRecords();
 //                for (var i = 0; i < records.length; ++i)
