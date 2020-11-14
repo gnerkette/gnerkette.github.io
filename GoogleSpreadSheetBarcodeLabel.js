@@ -115,7 +115,7 @@
                 };
      
                 img.src = url2;
-		return pngBase64;
+		return(img);
 		
             }
             catch(e)
