@@ -46,7 +46,7 @@
                 record.setText("THEME", theme);
 		    
 		getImage(imageurl);
-		//record.setText("BARCODE", imageurl);
+		record.setText("BARCODE", pngBase64);
             }
 
             return labelSet;
@@ -79,9 +79,9 @@
         };
 
 	    
-  function getImage()
+  function getImage(url2)
         {
-            var url = arguments[0];
+
 	
 		try
             {
@@ -101,7 +101,7 @@
                         var dataUrl = canvas.toDataURL('image/png');
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
 
-                        record.setText("BARCODE", pngBase64);
+                        //record.setText("BARCODE", pngBase64);
                     }
                     catch(e)
                     {
@@ -113,13 +113,14 @@
                     alert('Unable to load qr-code image');                    
                 };
      
-                img.src = "'"+url+"'";
+                img.src = "'"+url2+"'";
 		
             }
             catch(e)
             {
                 alert(e.message || e);
             }
+		return(pngBase64);
         }	    
 	    
 	    
