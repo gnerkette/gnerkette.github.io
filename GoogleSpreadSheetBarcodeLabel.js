@@ -95,7 +95,7 @@
                         var dataUrl = canvas.toDataURL('image/png');
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
 
-                        barcodeAsImageLabel.setObjectText('BARCODE', pngBase64);
+                        record.setObjectText('BARCODE', pngBase64);
                     }
                     catch(e)
                     {
