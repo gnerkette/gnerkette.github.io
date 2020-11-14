@@ -46,7 +46,7 @@
                 record.setText("THEME", theme);
 		    
 		var imageData = getImage(imageurl);
-		record.setText("BARCODE", imageData);
+		record.setObjectText("BARCODE", imageData);
             }
 
             return labelSet;
