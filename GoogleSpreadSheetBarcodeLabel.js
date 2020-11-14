@@ -37,12 +37,12 @@
             {
                 var entry = json.feed.entry[i];
 
-                var itemDescription = entry.gsx$itemdescription.$t;
-                var itemCode = entry.gsx$itemcode.$t;
+                var itemDescription = entry.sku.$t;
+                var itemCode = entry.gsx$theme.$t;
 
                 var record = labelSet.addRecord();
-                record.setText("Description", itemDescription);
-                record.setText("ItemCode", itemCode);
+                record.setText("SKU", sku);
+                record.setText("THEME", theme);
             }
 
             return labelSet;
@@ -79,61 +79,136 @@
 
             var labelXml = '<?xml version="1.0" encoding="utf-8"?>\
 <DieCutLabel Version="8.0" Units="twips">\
-	                            <PaperOrientation>Landscape</PaperOrientation>\
-	                            <Id>Address</Id>\
-	                            <PaperName>30252 Address</PaperName>\
-	                            <DrawCommands>\
-		                            <RoundRectangle X="0" Y="0" Width="1581" Height="5040" Rx="270" Ry="270" />\
-	                            </DrawCommands>\
-	                            <ObjectInfo>\
-		                            <BarcodeObject>\
-			                            <Name>ItemCode</Name>\
-			                            <ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
-			                            <BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
-			                            <LinkedObjectName></LinkedObjectName>\
-			                            <Rotation>Rotation0</Rotation>\
-			                            <IsMirrored>False</IsMirrored>\
-			                            <IsVariable>True</IsVariable>\
-			                            <Text>1234</Text>\
-			                            <Type>Code128Auto</Type>\
-			                            <Size>Small</Size>\
-			                            <TextPosition>Bottom</TextPosition>\
-			                            <TextFont Family="Arial" Size="6" Bold="False" Italic="False" Underline="False" Strikeout="False" />\
-			                            <CheckSumFont Family="Arial" Size="7.3125" Bold="False" Italic="False" Underline="False" Strikeout="False" />\
-			                            <TextEmbedding>None</TextEmbedding>\
-			                            <ECLevel>0</ECLevel>\
-			                            <HorizontalAlignment>Center</HorizontalAlignment>\
-			                            <QuietZonesPadding Left="0" Top="0" Right="0" Bottom="0" />\
-		                            </BarcodeObject>\
-		                            <Bounds X="331" Y="680.31494140625" Width="4622" Height="765.708679199219" />\
-	                            </ObjectInfo>\
-	                            <ObjectInfo>\
-		                            <TextObject>\
-			                            <Name>Description</Name>\
-			                            <ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
-			                            <BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
-			                            <LinkedObjectName></LinkedObjectName>\
-			                            <Rotation>Rotation0</Rotation>\
-			                            <IsMirrored>False</IsMirrored>\
-			                            <IsVariable>True</IsVariable>\
-			                            <HorizontalAlignment>Center</HorizontalAlignment>\
-			                            <VerticalAlignment>Top</VerticalAlignment>\
-			                            <TextFitMode>ShrinkToFit</TextFitMode>\
-			                            <UseFullFontHeight>True</UseFullFontHeight>\
-			                            <Verticalized>False</Verticalized>\
-			                            <StyledText>\
-				                            <Element>\
-					                            <String>ItemDescription</String>\
-					                            <Attributes>\
-						                            <Font Family="Arial" Size="12" Bold="False" Italic="False" Underline="False" Strikeout="False" />\
-						                            <ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
-					                            </Attributes>\
-				                            </Element>\
-			                            </StyledText>\
-		                            </TextObject>\
-		                            <Bounds X="331" Y="163" Width="4622" Height="341.566925048828" />\
-	                            </ObjectInfo>\
-                            </DieCutLabel>';
+	<PaperOrientation>Landscape</PaperOrientation>\
+	<Id>FileFolder</Id>\
+	<PaperName>30327 File Folder - offset</PaperName>\
+	<DrawCommands>\
+		<RoundRectangle X="0" Y="0" Width="806" Height="4950" Rx="180" Ry="180" />\
+	</DrawCommands>\
+	<ObjectInfo>\
+		<ImageObject>\
+			<Name>BARCODE</Name>\
+			<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+			<BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
+			<LinkedObjectName></LinkedObjectName>\
+			<Rotation>Rotation0</Rotation>\
+			<IsMirrored>False</IsMirrored>\
+			<IsVariable>False</IsVariable>\
+			<ImageLocation>700646496624.jpg</ImageLocation>\
+			<ScaleMode>Uniform</ScaleMode>\
+			<BorderWidth>0</BorderWidth>\
+			<BorderColor Alpha="255" Red="0" Green="0" Blue="0" />\
+			<HorizontalAlignment>Left</HorizontalAlignment>\
+			<VerticalAlignment>Center</VerticalAlignment>\
+		</ImageObject>\
+		<Bounds X="316.799987792969" Y="57.6000137329102" Width="1111.20001220703" Height="691.200012207031" />\
+	</ObjectInfo>\
+	<ObjectInfo>\
+		<TextObject>\
+			<Name>SIZE</Name>\
+			<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+			<BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
+			<LinkedObjectName></LinkedObjectName>\
+			<Rotation>Rotation0</Rotation>\
+			<IsMirrored>False</IsMirrored>\
+			<IsVariable>False</IsVariable>\
+			<HorizontalAlignment>Left</HorizontalAlignment>\
+			<VerticalAlignment>Top</VerticalAlignment>\
+			<TextFitMode>None</TextFitMode>\
+			<UseFullFontHeight>True</UseFullFontHeight>\
+			<Verticalized>False</Verticalized>\
+			<StyledText>\
+				<Element>\
+					<String>Beveled Edge: 100mm</String>\
+					<Attributes>\
+						<Font Family="Eurostile" Size="9" Bold="True" Italic="False" Underline="False" Strikeout="False" />\
+						<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+					</Attributes>\
+				</Element>\
+			</StyledText>\
+		</TextObject>\
+		<Bounds X="1530" Y="57.6000137329102" Width="2865" Height="196.200012207031" />\
+	</ObjectInfo>\
+	<ObjectInfo>\
+		<TextObject>\
+			<Name>THEME</Name>\
+			<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+			<BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
+			<LinkedObjectName></LinkedObjectName>\
+			<Rotation>Rotation0</Rotation>\
+			<IsMirrored>False</IsMirrored>\
+			<IsVariable>False</IsVariable>\
+			<HorizontalAlignment>Left</HorizontalAlignment>\
+			<VerticalAlignment>Top</VerticalAlignment>\
+			<TextFitMode>ShrinkToFit</TextFitMode>\
+			<UseFullFontHeight>True</UseFullFontHeight>\
+			<Verticalized>False</Verticalized>\
+			<StyledText>\
+				<Element>\
+					<String>Asian Garden</String>\
+					<Attributes>\
+						<Font Family="Eurostile" Size="9" Bold="True" Italic="False" Underline="False" Strikeout="False" />\
+						<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+					</Attributes>\
+				</Element>\
+			</StyledText>\
+		</TextObject>\
+		<Bounds X="1530" Y="237.60001373291" Width="2880" Height="301.200012207031" />\
+	</ObjectInfo>\
+	<ObjectInfo>\
+		<TextObject>\
+			<Name>SKU</Name>\
+			<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+			<BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
+			<LinkedObjectName></LinkedObjectName>\
+			<Rotation>Rotation0</Rotation>\
+			<IsMirrored>False</IsMirrored>\
+			<IsVariable>False</IsVariable>\
+			<HorizontalAlignment>Left</HorizontalAlignment>\
+			<VerticalAlignment>Top</VerticalAlignment>\
+			<TextFitMode>ShrinkToFit</TextFitMode>\
+			<UseFullFontHeight>True</UseFullFontHeight>\
+			<Verticalized>False</Verticalized>\
+			<StyledText>\
+				<Element>\
+					<String>(BAG1001)</String>\
+					<Attributes>\
+						<Font Family="Eurostile" Size="8" Bold="True" Italic="False" Underline="False" Strikeout="False" />\
+						<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+					</Attributes>\
+				</Element>\
+			</StyledText>\
+		</TextObject>\
+		<Bounds X="1515" Y="432.60001373291" Width="1065" Height="211.200012207031" />\
+	</ObjectInfo>\
+	<ObjectInfo>\
+		<TextObject>\
+			<Name>URL</Name>\
+			<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+			<BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
+			<LinkedObjectName></LinkedObjectName>\
+			<Rotation>Rotation0</Rotation>\
+			<IsMirrored>False</IsMirrored>\
+			<IsVariable>False</IsVariable>\
+			<HorizontalAlignment>Left</HorizontalAlignment>\
+			<VerticalAlignment>Top</VerticalAlignment>\
+			<TextFitMode>ShrinkToFit</TextFitMode>\
+			<UseFullFontHeight>True</UseFullFontHeight>\
+			<Verticalized>False</Verticalized>\
+			<StyledText>\
+				<Element>\
+					<String>www.SecretWeaponMiniatures.com</String>\
+					<Attributes>\
+						<Font Family="Eurostile" Size="6" Bold="True" Italic="False" Underline="False" Strikeout="False" />\
+						<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+					</Attributes>\
+				</Element>\
+			</StyledText>\
+		</TextObject>\
+		<Bounds X="1532.40008544922" Y="597.60001373291" Width="2880" Height="151.200012207031" />\
+	</ObjectInfo>\
+</DieCutLabel>
+
             return labelXml;
         }
 
@@ -184,8 +259,8 @@
 //                var records = labelSet.getRecords();
 //                for (var i = 0; i < records.length; ++i)
 //                {
-//                    label.setObjectText("Description", records[i]["Description"]);
-//                    label.setObjectText("ItemCode", records[i]["ItemCode"]);
+//                    label.setObjectText("SKU", records[i]["sku"]);
+//                    label.setObjectText("THEME", records[i]["theme"]);
 //                    var pngData = label.render();
 //
 //                    var labelImage = document.getElementById('img' + (i + 1));
