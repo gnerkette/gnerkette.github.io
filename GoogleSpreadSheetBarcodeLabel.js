@@ -39,14 +39,10 @@
 
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
-		var imageurl = entry.gsx$imageurl.$t;
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
-		    
-		var imageData = getImage(imageurl);
-		record.setObjectText("BARCODE", imageData);
             }
 
             return labelSet;
@@ -79,11 +75,9 @@
         };
 
 	    
-  function getImage(url2)
+  function getImage()
         {
-
-	
-		try
+            try
             {
                 var img = new Image();
                 img.crossOrigin = 'anonymous';
@@ -101,8 +95,7 @@
                         var dataUrl = canvas.toDataURL('image/png');
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
 
-                        //record.setText("BARCODE", pngBase64);
-			 		return(pngBase64);
+                        label.setObjectText('BARCODE', pngBase64);
                     }
                     catch(e)
                     {
@@ -114,15 +107,13 @@
                     alert('Unable to load qr-code image');                    
                 };
      
-                img.src = url2;
-
+                img.src = 'https://gnerkette.github.io/631060788982.jpg';
 		
             }
             catch(e)
             {
                 alert(e.message || e);
             }
-		
         }	    
 	    
 	    
@@ -307,7 +298,7 @@
                 if (!labelSet)
                     throw "Label data is not loaded";
 
-		//getImage();
+		getImage();
                 label.print(printersSelect.value, '', labelSet);
 //                var records = labelSet.getRecords();
 //                for (var i = 0; i < records.length; ++i)
