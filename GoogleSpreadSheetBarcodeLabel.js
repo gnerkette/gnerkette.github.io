@@ -16,19 +16,14 @@
 //  Copyright (c), 2010, Sanford, L.P. All Rights Reserved.
 //
 //----------------------------------------------------------------------------
-
-
-
 (function()
 {
     var label;
     var labelSet;
-
     function onload()
     {
         var printButton = document.getElementById('printButton');
         var printersSelect = document.getElementById('printersSelect');
-
         function createLabelSet(json)
         {
             var labelSet = new dymo.label.framework.LabelSetBuilder();
@@ -36,51 +31,66 @@
             for (var i = 0; i < json.feed.entry.length; ++i)
             {
                 var entry = json.feed.entry[i];
-
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
 		var imageurl = entry.gsx$imageurl.$t;
 		
 		    
-
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
-		record.setText("BARCODES", imageurl);
 		    
+		var img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = function()
+                {
+                    try
+                    {
+                        var canvas = document.createElement('canvas');
+                        canvas.width = img.width;                     
+                        canvas.height = img.height;
+                        var context = canvas.getContext('2d');
+                        context.drawImage(img, 0, 0);
+                        var dataUrl = canvas.toDataURL('image/png');
+                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
+                      
+                        record.setText("BARCODE", pngBase64);
+                    }
+                    catch(e)
+                    {
+                        alert(e.message || e);
+                    }
+                };
+                img.onerror = function()
+                {
+                    alert('Unable to load qr-code image');                    
+                };
+                img.src = imageurl;
+            }
 
-		    
-            
 
             return labelSet;
         }
-
         function loadSpreadSheetDataCallback(json)
         {
             labelSet = createLabelSet(json);
         };
-
         window._loadSpreadSheetDataCallback = loadSpreadSheetDataCallback;
-
         function loadSpreadSheetData()
         {
             removeOldJSONScriptNodes();
-
             var script = document.createElement('script');
-
             script.setAttribute('src', 'https://spreadsheets.google.com/feeds/list/1NuAevHWdpsWChNk20iWUYzTw9iJY1vRmnws7LSjGLv0/1/public/values?alt=json-in-script&callback=window._loadSpreadSheetDataCallback');
             script.setAttribute('id', 'printScript');
             script.setAttribute('type', 'text/javascript');
             document.documentElement.firstChild.appendChild(script);
         };
-
         function removeOldJSONScriptNodes()
         {
             var jsonScript = document.getElementById('printScript');
             if (jsonScript)
                 jsonScript.parentNode.removeChild(jsonScript);
         };
-
 	    
  
 	    
@@ -88,7 +98,6 @@
 	    
         function getBarcodeLabelXml()
         {
-
             var labelXml = '<?xml version="1.0" encoding="utf-8"?>\
 <DieCutLabel Version="8.0" Units="twips">\
 	<PaperOrientation>Landscape</PaperOrientation>\
@@ -220,10 +229,8 @@
 		<Bounds X="1532.40008544922" Y="597.60001373291" Width="2880" Height="151.200012207031" />\
 	</ObjectInfo>\
 </DieCutLabel>';
-
             return labelXml;
         }
-
         function loadLabel()
         {
             // use jQuery API to load label
@@ -232,7 +239,6 @@
             label = dymo.label.framework.openLabelXml(getBarcodeLabelXml());
             //}, "text");
         }
-
         // loads all supported printers into a combo box 
         function loadPrinters()
         {
@@ -242,19 +248,16 @@
                 alert("No DYMO LabelWriter printers are installed. Install DYMO LabelWriter printers.");
                 return;
             }
-
             for (var i = 0; i < printers.length; ++i)
             {
                 var printer = printers[i];
                 var printerName = printer.name;
-
                 var option = document.createElement('option');
                 option.value = printerName;
                 option.appendChild(document.createTextNode(printerName));
                 printersSelect.appendChild(option);
             }
         }
-
         // prints the label
         printButton.onclick = function()
         {
@@ -262,36 +265,29 @@
             {
                 if (!label)
                     throw "Label is not loaded";
-
                 if (!labelSet)
                     throw "Label data is not loaded";
-
                 label.print(printersSelect.value, '', labelSet);
 //                var records = labelSet.getRecords();
 //                for (var i = 0; i < records.length; ++i)
 //                {
 //                    label.setObjectText("SKU", records[i]["sku"]);
 //                    label.setObjectText("THEME", records[i]["theme"]);
-
 //                    var pngData = label.render();
 //
 //                    var labelImage = document.getElementById('img' + (i + 1));
 //                    labelImage.src = "data:image/png;base64," + pngData;
 //                }
-
             }
             catch (e)
             {
                 alert(e.message || e);
             }
         };
-
         loadLabel();
         loadSpreadSheetData();
         loadPrinters();
-
     };
-
     function initTests()
 	{
 		if(dymo.label.framework.init)
@@ -302,7 +298,6 @@
 			onload();
 		}
 	}
-
 	// register onload event
 	if (window.addEventListener)
 		window.addEventListener("load", initTests, false);
@@ -310,5 +305,4 @@
 		window.attachEvent("onload", initTests);
 	else
 		window.onload = initTests;
-
 } ());
