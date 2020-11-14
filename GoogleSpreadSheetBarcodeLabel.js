@@ -38,7 +38,7 @@
                 var entry = json.feed.entry[i];
 
                 var sku = entry.sku.$t;
-                var theme = entry.gsx$theme.$t;
+                var theme = entry.theme.$t;
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
