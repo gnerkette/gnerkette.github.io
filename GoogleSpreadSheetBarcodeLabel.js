@@ -39,7 +39,7 @@
 
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
-		var imageurl = entry.gsx$theme.$t;
+		var imageurl = entry.gsx$imageurl.$t;
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
