@@ -75,7 +75,7 @@
                 {
                     alert('Unable to load qr-code image');                    
                 };
-                img.src = "'"+imageurl+"'";
+                img.src = "imageurl";
             }
 		    
             
