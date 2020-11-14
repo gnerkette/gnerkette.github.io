@@ -77,12 +77,6 @@
                 };
                 img.src = imageurl;
             }
-            catch(e)
-            {
-                alert(e.message || e);
-            }    
-		    
-		    
 		    
             }
 
