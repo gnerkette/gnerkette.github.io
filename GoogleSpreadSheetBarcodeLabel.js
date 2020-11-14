@@ -86,6 +86,50 @@
 		<RoundRectangle X="0" Y="0" Width="806" Height="4950" Rx="180" Ry="180" />\
 	</DrawCommands>\
 	<ObjectInfo>\
+		<ImageObject>\
+			<Name>BARCODE</Name>\
+			<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+			<BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
+			<LinkedObjectName></LinkedObjectName>\
+			<Rotation>Rotation0</Rotation>\
+			<IsMirrored>False</IsMirrored>\
+			<IsVariable>False</IsVariable>\
+			<ImageLocation>700646496624.jpg</ImageLocation>\
+			<ScaleMode>Uniform</ScaleMode>\
+			<BorderWidth>0</BorderWidth>\
+			<BorderColor Alpha="255" Red="0" Green="0" Blue="0" />\
+			<HorizontalAlignment>Left</HorizontalAlignment>\
+			<VerticalAlignment>Center</VerticalAlignment>\
+		</ImageObject>\
+		<Bounds X="316.799987792969" Y="57.6000137329102" Width="1111.20001220703" Height="691.200012207031" />\
+	</ObjectInfo>\
+	<ObjectInfo>\
+		<TextObject>\
+			<Name>SIZE</Name>\
+			<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+			<BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
+			<LinkedObjectName></LinkedObjectName>\
+			<Rotation>Rotation0</Rotation>\
+			<IsMirrored>False</IsMirrored>\
+			<IsVariable>False</IsVariable>\
+			<HorizontalAlignment>Left</HorizontalAlignment>\
+			<VerticalAlignment>Top</VerticalAlignment>\
+			<TextFitMode>None</TextFitMode>\
+			<UseFullFontHeight>True</UseFullFontHeight>\
+			<Verticalized>False</Verticalized>\
+			<StyledText>\
+				<Element>\
+					<String>Beveled Edge: 100mm</String>\
+					<Attributes>\
+						<Font Family="Eurostile" Size="9" Bold="True" Italic="False" Underline="False" Strikeout="False" />\
+						<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
+					</Attributes>\
+				</Element>\
+			</StyledText>\
+		</TextObject>\
+		<Bounds X="1530" Y="57.6000137329102" Width="2865" Height="196.200012207031" />\
+	</ObjectInfo>\
+	<ObjectInfo>\
 		<TextObject>\
 			<Name>THEME</Name>\
 			<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
