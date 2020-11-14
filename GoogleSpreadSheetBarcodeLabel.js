@@ -47,19 +47,7 @@
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
 		    
-		$.get(imageurl, function(url)
-        {
-            try
-            {
-                record.setText("BARCODE", url);
 
-
-            }
-            catch(e)
-            {
-                alert(e.message || e);
-            }
-        }, "text");
 		    
             
 
