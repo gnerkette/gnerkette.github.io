@@ -40,33 +40,34 @@
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
 		    
-		var img = new Image();
-                img.crossOrigin = 'anonymous';
-                img.onload = function()
-                {
-                    try
-                    {
-                        var canvas = document.createElement('canvas');
-                        canvas.width = img.width;                     
-                        canvas.height = img.height;
-                        var context = canvas.getContext('2d');
-                        context.drawImage(img, 0, 0);
-                        var dataUrl = canvas.toDataURL('image/png');
-                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
-                      
-                        record.setText("BARCODE", pngBase64);
-                    }
-                    catch(e)
-                    {
-                        alert(e.message || e);
-                    }
-                };
-                img.onerror = function()
-                {
-                    alert('Unable to load qr-code image');                    
-                };
-                img.src = imageurl;
+	var img = new Image();
+        img.onload = function()
+        {
+            try
+            {
+                var canvas = document.createElement('canvas');
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                var context = canvas.getContext('2d');
+                context.drawImage(img, 0, 0);
+
+                var dataUrl = canvas.toDataURL('image/png');
+                var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
+
+                record.setText("BARCODE", pngBase64);
+
             }
+            catch(e)
+            {
+                alert(e.message || e);
+            }
+        };
+        img.onerror = function()
+        {
+            alert('Unable to load "qr.png"');
+        };
+        img.src = imageurl;
 
 
             return labelSet;
