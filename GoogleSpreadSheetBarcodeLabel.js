@@ -102,7 +102,7 @@
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
 
                         //record.setText("BARCODE", pngBase64);
-			 return pngBase64;
+			 
                     }
                     catch(e)
                     {
@@ -115,6 +115,7 @@
                 };
      
                 img.src = url2;
+		return pngBase64;
 		
             }
             catch(e)
