@@ -43,7 +43,6 @@
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
-		record.setText("
             }
 
             return labelSet;
