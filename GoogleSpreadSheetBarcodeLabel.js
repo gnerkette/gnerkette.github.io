@@ -39,7 +39,7 @@
 
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
-		var imageurl = entry.gsx$imageurl.$t;
+		//var imageurl = entry.gsx$imageurl.$t;
 		
 		    
 
