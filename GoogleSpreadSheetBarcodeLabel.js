@@ -255,6 +255,16 @@
                     throw "Label data is not loaded";
 
                 label.print(printersSelect.value, '', labelSet);
+//                var records = labelSet.getRecords();
+//                for (var i = 0; i < records.length; ++i)
+//                {
+//                    label.setObjectText("SKU", records[i]["sku"]);
+//                    label.setObjectText("THEME", records[i]["theme"]);
+//                    var pngData = label.render();
+//
+//                    var labelImage = document.getElementById('img' + (i + 1));
+//                    labelImage.src = "data:image/png;base64," + pngData;
+//                }
 
             }
             catch (e)
