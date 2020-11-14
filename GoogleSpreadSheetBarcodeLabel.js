@@ -37,8 +37,8 @@
             {
                 var entry = json.feed.entry[i];
 
-                var itemDescription = entry.sku.$t;
-                var itemCode = entry.gsx$theme.$t;
+                var sku = entry.sku.$t;
+                var theme = entry.gsx$theme.$t;
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
