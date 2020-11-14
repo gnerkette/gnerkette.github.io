@@ -207,7 +207,7 @@
 		</TextObject>\
 		<Bounds X="1532.40008544922" Y="597.60001373291" Width="2880" Height="151.200012207031" />\
 	</ObjectInfo>\
-</DieCutLabel>
+</DieCutLabel>';
 
             return labelXml;
         }
