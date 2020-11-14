@@ -79,9 +79,11 @@
         };
 
 	    
-  function getImage(url)
+  function getImage()
         {
-            try
+            var url = arguments[0];
+	
+		try
             {
                 var img = new Image();
                 img.crossOrigin = 'anonymous';
