@@ -94,7 +94,7 @@
 			<Rotation>Rotation0</Rotation>\
 			<IsMirrored>False</IsMirrored>\
 			<IsVariable>False</IsVariable>\
-			<ImageLocation>https://gnerkette.github.io/631060788982.jpg</ImageLocation>\
+			</ImageLocation>\
 			<ScaleMode>Uniform</ScaleMode>\
 			<BorderWidth>0</BorderWidth>\
 			<BorderColor Alpha="255" Red="0" Green="0" Blue="0" />\
