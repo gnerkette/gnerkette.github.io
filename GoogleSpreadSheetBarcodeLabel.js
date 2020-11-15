@@ -259,21 +259,14 @@
         {
             try
             {
-                if (!label)
-                    throw "Label is not loaded";
+                if (!barcodeAsImageLabel)
+                    throw "Load label before printing";
 
-                if (!labelSet)
-                    throw "Label data is not loaded";
+                if (!printersSelect.value)
+                    throw "Select printer.";
 
-                label.print(printersSelect.value, '', labelSet);
-                var records = labelSet.getRecords();
-                for (var i = 0; i < records.length; ++i)
-             {
-		    label.setObjectText("SKU", records[i]["SKU"]);
-                    label.setObjectText("THEME", records[i]["THEME"]);
-		    
-  
-		var img = new Image();
+
+                var img = new Image();
                 img.crossOrigin = 'anonymous';
                 img.onload = function()
                 {
@@ -289,9 +282,8 @@
                         var dataUrl = canvas.toDataURL('image/png');
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
 
-                      //label.setObjectText('BARCODE', pngBase64);
-                       label.setObjectText('BARCODE', pngBase64);
-                       label.print(printersSelect.value);
+                        label.setObjectText('Image', pngBase64);
+                        label.print(printersSelect.value);
                     }
                     catch(e)
                     {
@@ -302,15 +294,12 @@
                 {
                     alert('Unable to load qr-code image');                    
                 };
-                img.src = records[i]["BARCODE"];
-           
-		
+                img.src = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A//developers.dymo.com&choe=UTF-8';
             }
-	    catch(e)
-	    {
-		    throw "This is dumb";
-	    }
-        };
+            catch(e)
+            {
+                alert(e.message || e);
+            }
 
         loadLabel();
         loadSpreadSheetData();
