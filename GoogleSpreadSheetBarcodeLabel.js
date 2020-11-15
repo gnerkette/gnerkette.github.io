@@ -303,7 +303,7 @@
 //               		label.print(printersSelect.value);  
 		}
 		     
-            }
+            
             catch (e)
             {
                 alert(e.message || e);
