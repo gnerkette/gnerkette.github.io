@@ -302,11 +302,11 @@
 //			label.setObjectText("BARCODE", records[i]["BARCODE"]);
 
 //               		label.print(printersSelect.value);  
-		}
+		};
 		     
             
 
-        };
+       
 
         loadLabel();
         loadSpreadSheetData();
