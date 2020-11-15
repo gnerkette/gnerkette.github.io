@@ -61,10 +61,10 @@
 
                         var dataUrl = canvas.toDataURL('image/jpeg');
                         var pngBase64 = dataUrl.substr('data:image/jpeg;base64,'.length);
-			//var realimage = "data:image/jpeg;base64," + pngBase64;
+			var realimage = "data:image/jpeg;base64, " + pngBase64;
 
-   			record.setText("BARCODE", pngBase64);
-			    //alert(realimage);
+   			record.setText("BARCODE", realimage);
+			    alert(realimage);
                     }
                     catch(e)
                     {
@@ -297,7 +297,7 @@
                     label.setObjectText("THEME", records[i]["THEME"]);
 		    label.setObjectText("BARCODE", records[i]["BARCODE"]);
 	
-		label.print(printersSelect.value, '', labelSet);
+		label.print(printersSelect.value);
             }
 	    }
             catch(e)
