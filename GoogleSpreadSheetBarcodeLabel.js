@@ -295,7 +295,7 @@
                 {
                     label.setObjectText("SKU", records[i]["SKU"]);
                     label.setObjectText("THEME", records[i]["THEME"]);
-		    label.setObjectText("BARCODE", records[i]["BARCODE"];
+		    label.setObjectText("BARCODE", records[i]["BARCODE"]);
 	
 		label.print(printersSelect.value);
             }
