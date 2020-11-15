@@ -39,12 +39,12 @@
 
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
-		var image = entry.gsx$theme.$t;
+		var codeimage = entry.gsx$imageurl.$t;
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
-		record.setText("BARCODE, image);
+		record.setText("BARCODE", codeimage);
             }
 
             return labelSet;
