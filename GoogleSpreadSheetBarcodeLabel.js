@@ -39,17 +39,11 @@
 
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
-		var imageurl = entry.gsx$imageurl.$t;
-		
-		    
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
-		record.setText("BARCODE", imageurl);
-
-		    
-            
+            }
 
             return labelSet;
         }
@@ -80,11 +74,6 @@
                 jsonScript.parentNode.removeChild(jsonScript);
         };
 
-	    
- 
-	    
-	    
-	    
         function getBarcodeLabelXml()
         {
 
@@ -105,7 +94,7 @@
 			<Rotation>Rotation0</Rotation>\
 			<IsMirrored>False</IsMirrored>\
 			<IsVariable>False</IsVariable>\
-			<ImageLocation/>\
+			<ImageLocation>https://gnerkette.github.io/631060788982.jpg</ImageLocation>\
 			<ScaleMode>Uniform</ScaleMode>\
 			<BorderWidth>0</BorderWidth>\
 			<BorderColor Alpha="255" Red="0" Green="0" Blue="0" />\
@@ -259,47 +248,30 @@
         {
             try
             {
-                if (!barcodeAsImageLabel)
-                    throw "Load label before printing";
+                if (!label)
+                    throw "Label is not loaded";
 
-                if (!printersSelect.value)
-                    throw "Select printer.";
+                if (!labelSet)
+                    throw "Label data is not loaded";
 
+                label.print(printersSelect.value, '', labelSet);
+//                var records = labelSet.getRecords();
+//                for (var i = 0; i < records.length; ++i)
+//                {
+//                    label.setObjectText("SKU", records[i]["sku"]);
+//                    label.setObjectText("THEME", records[i]["theme"]);
+//                    var pngData = label.render();
+//
+//                    var labelImage = document.getElementById('img' + (i + 1));
+//                    labelImage.src = "data:image/png;base64," + pngData;
+//                }
 
-                var img = new Image();
-                img.crossOrigin = 'anonymous';
-                img.onload = function()
-                {
-                    try
-                    {
-                        var canvas = document.createElement('canvas');
-                        canvas.width = img.width;                     
-                        canvas.height = img.height;
-
-                        var context = canvas.getContext('2d');
-                        context.drawImage(img, 0, 0);
-
-                        var dataUrl = canvas.toDataURL('image/png');
-                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
-
-                        label.setObjectText('Image', pngBase64);
-                        label.print(printersSelect.value);
-                    }
-                    catch(e)
-                    {
-                        alert(e.message || e);
-                    }
-                };
-                img.onerror = function()
-                {
-                    alert('Unable to load qr-code image');                    
-                };
-                img.src = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A//developers.dymo.com&choe=UTF-8';
             }
-            catch(e)
+            catch (e)
             {
                 alert(e.message || e);
             }
+        };
 
         loadLabel();
         loadSpreadSheetData();
