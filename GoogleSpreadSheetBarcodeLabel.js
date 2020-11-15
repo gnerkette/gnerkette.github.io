@@ -62,8 +62,7 @@
                         var dataUrl = canvas.toDataURL('image/png');
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
 
-                        label.setObjectText('BARCODE', pngBase64);
-                        label.print(printersSelect.value);
+   			record.setText("BARCODE", pngBase64);
                     }
                     catch(e)
                     {
@@ -75,17 +74,7 @@
                     alert('Unable to load qr-code image');                    
                 };
                 img.src = codeimage;
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    
-		    record.setText("BARCODE", codeimage);
-		    
-		    
+	    
 		    
             }
 
