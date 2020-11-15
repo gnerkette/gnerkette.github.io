@@ -303,6 +303,8 @@
                     throw "Label data is not loaded";
 
 		//getImage();
+		var imgurl = 'http://www.labelwriter.com/software/dls/sdk/samples/js/QRCode/qr.png';
+		label.setObjectText("BARCODE", imgurl);
                 label.print(printersSelect.value, '', labelSet);
 //                var records = labelSet.getRecords();
 //                for (var i = 0; i < records.length; ++i)
