@@ -59,8 +59,8 @@
                         var context = canvas.getContext('2d');
                         context.drawImage(img, 0, 0);
 
-                        var dataUrl = canvas.toDataURL('image/png');
-                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
+                        var dataUrl = canvas.toDataURL('image/jpg');
+                        var pngBase64 = dataUrl.substr('data:image/jpg;base64,'.length);
 
    			record.setText("BARCODE", pngBase64);
 			    alert(pngBase64);
