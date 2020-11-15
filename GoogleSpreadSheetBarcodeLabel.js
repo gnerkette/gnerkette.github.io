@@ -305,10 +305,7 @@
 		}
 		     
             
-            catch (e)
-            {
-                alert(e.message || e);
-            }
+
         };
 
         loadLabel();
