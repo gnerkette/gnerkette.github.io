@@ -40,6 +40,7 @@
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
 		var codeimage = entry.gsx$imageurl.$t;
+		 alert(codeimage);
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
@@ -62,7 +63,8 @@
                         var dataUrl = canvas.toDataURL('image/jpg');
                         var pngBase64 = dataUrl.substr('data:image/jpg;base64,'.length);
 			var realimage = "data:image/jpg;base64, " + pngBase64;
-
+			
+			    record.setText("BARCODE", codeimage);
    			//record.setText("BARCODE", pngBase64);
 			    alert(pngBase64);
                     }
@@ -129,7 +131,7 @@
 			<Rotation>Rotation0</Rotation>\
 			<IsMirrored>False</IsMirrored>\
 			<IsVariable>False</IsVariable>\
-			<ImageLocation>"https://gnerkette.github.io/631060788999.jpg"</ImageLocation>\
+			</ImageLocation/>\
 			<ScaleMode>Uniform</ScaleMode>\
 			<BorderWidth>0</BorderWidth>\
 			<BorderColor Alpha="255" Red="0" Green="0" Blue="0" />\
@@ -295,7 +297,7 @@
                 {
                     label.setObjectText("SKU", records[i]["SKU"]);
                     label.setObjectText("THEME", records[i]["THEME"]);
-		    //label.setObjectText("BARCODE", records[i]["BARCODE"]);
+		    label.setObjectText("BARCODE", records[i]["BARCODE"]);
 	
 		label.print(printersSelect.value);
             }
