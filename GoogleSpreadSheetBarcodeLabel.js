@@ -44,7 +44,49 @@
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
-		record.setText("BARCODE", codeimage);
+		
+		    
+		var img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = function()
+                {
+                    try
+                    {
+                        var canvas = document.createElement('canvas');
+                        canvas.width = img.width;                     
+                        canvas.height = img.height;
+
+                        var context = canvas.getContext('2d');
+                        context.drawImage(img, 0, 0);
+
+                        var dataUrl = canvas.toDataURL('image/png');
+                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
+
+                        label.setObjectText('BARCODE', pngBase64);
+                        label.print(printersSelect.value);
+                    }
+                    catch(e)
+                    {
+                        alert(e.message || e);
+                    }
+                };
+                img.onerror = function()
+                {
+                    alert('Unable to load qr-code image');                    
+                };
+                img.src = codeimage;
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    
+		    record.setText("BARCODE", codeimage);
+		    
+		    
+		    
             }
 
             return labelSet;
@@ -255,44 +297,16 @@
                 if (!labelSet)
                     throw "Label data is not loaded";
 
-               // label.print(printersSelect.value, '', labelSet);
+                label.print(printersSelect.value, '', labelSet);
 
-                var records = labelSet.getRecords();
-                for (var i = 0; i < records.length; ++i)
-                {
-                    label.setObjectText("SKU", records[i]["SKU"]);
-                    label.setObjectText("THEME", records[i]["THEME"]);
+ //               var records = labelSet.getRecords();
+   //             for (var i = 0; i < records.length; ++i)
+     //           {
+       //             label.setObjectText("SKU", records[i]["SKU"]);
+         //           label.setObjectText("THEME", records[i]["THEME"]);
 	
-		var img = new Image();
-                img.crossOrigin = 'anonymous';
-                img.onload = function()
-                {
-                    try
-                    {
-                        var canvas = document.createElement('canvas');
-                        canvas.width = img.width;                     
-                        canvas.height = img.height;
-
-                        var context = canvas.getContext('2d');
-                        context.drawImage(img, 0, 0);
-
-                        var dataUrl = canvas.toDataURL('image/png');
-                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
-
-                        label.setObjectText('BARCODE', pngBase64);
-                        label.print(printersSelect.value);
-                    }
-                    catch(e)
-                    {
-                        alert(e.message || e);
-                    }
-                };
-                img.onerror = function()
-                {
-                    alert('Unable to load qr-code image');                    
-                };
-                img.src = records[i]["BARCODE"];
-            }
+		
+           // }
 	    }
             catch(e)
             {
