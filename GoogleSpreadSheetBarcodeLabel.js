@@ -246,8 +246,9 @@
 //
 //                    var labelImage = document.getElementById('img' + (i + 1));
 //                    labelImage.src = "data:image/png;base64," + pngData;
-//                }
-		      label.print(printersSelect.value);
+               		label.print(printersSelect.value);  
+		}
+		     
             }
             catch (e)
             {
