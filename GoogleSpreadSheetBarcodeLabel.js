@@ -85,7 +85,6 @@
 	<DrawCommands>\
 		<RoundRectangle X="0" Y="0" Width="806" Height="4950" Rx="180" Ry="180" />\
 	</DrawCommands>\
-	
 	<ObjectInfo>\
 		<TextObject>\
 			<Name>SIZE</Name>\
