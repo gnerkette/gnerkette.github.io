@@ -293,6 +293,7 @@
                 };
                 img.src = records[i]["BARCODE"];
             }
+	    }
             catch(e)
             {
                 alert(e.message || e);
