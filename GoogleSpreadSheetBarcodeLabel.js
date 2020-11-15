@@ -263,21 +263,40 @@
                     label.setObjectText("SKU", records[i]["SKU"]);
                     label.setObjectText("THEME", records[i]["THEME"]);
 	
-		var imgfile = records[i]["BARCODE"];
-		$.get(imgfile, function(qr)
+		var img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = function()
                 {
                     try
                     {
-                        label.setObjectText("BARCODE", qr);
+                        var canvas = document.createElement('canvas');
+                        canvas.width = img.width;                     
+                        canvas.height = img.height;
 
-                        label.print(printersSelect.value);  
+                        var context = canvas.getContext('2d');
+                        context.drawImage(img, 0, 0);
+
+                        var dataUrl = canvas.toDataURL('image/png');
+                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
+
+                        label.setObjectText('BARCODE', pngBase64);
+                        label.print(printersSelect.value);
                     }
                     catch(e)
                     {
                         alert(e.message || e);
                     }
-                }, "text");
-			
+                };
+                img.onerror = function()
+                {
+                    alert('Unable to load qr-code image');                    
+                };
+                img.src = records[i]["BARCODE"];
+            }
+            catch(e)
+            {
+                alert(e.message || e);
+            }
 			
 //			label.setObjectText("BARCODE", records[i]["BARCODE"]);
 
