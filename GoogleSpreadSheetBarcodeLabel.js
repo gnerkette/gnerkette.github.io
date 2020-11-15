@@ -61,7 +61,7 @@
 
                         var dataUrl = canvas.toDataURL('image/jpeg');
                         var pngBase64 = dataUrl.substr('data:image/jpeg;base64,'.length);
-			var realimage = "data:image/png;base64," + pngBase64;
+			var realimage = "data:image/jpeg;base64," + pngBase64;
 
    			record.setText("BARCODE", realimage);
 			    alert(realimage);
