@@ -63,8 +63,8 @@
                         var dataUrl = canvas.toDataURL('image/png');
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
 
-                      
-                        record.setText("BARCODE", pngBase64);
+                      label.setObjectText('BARCODE', pngBase64);
+                       // record.setText("BARCODE", pngBase64);
                     }
                     catch(e)
                     {
