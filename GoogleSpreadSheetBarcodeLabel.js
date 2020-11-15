@@ -63,7 +63,7 @@
                         var pngBase64 = dataUrl.substr('data:image/jpg;base64,'.length);
 			var realimage = "data:image/jpg;base64, " + pngBase64;
 
-   			record.setText("BARCODE", pngBase64);
+   			//record.setText("BARCODE", pngBase64);
 			    alert(pngBase64);
                     }
                     catch(e)
