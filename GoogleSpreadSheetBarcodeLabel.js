@@ -302,9 +302,7 @@
                     alert('Unable to load qr-code image');                    
                 };
                 img.src = records[i]["BARCODE"];
-            }
-		     
-                }
+           
 		label.print(printersSelect.value, '', label);
             }
             catch (e)
