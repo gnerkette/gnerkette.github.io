@@ -262,12 +262,26 @@
                 {
                     label.setObjectText("SKU", records[i]["SKU"]);
                     label.setObjectText("THEME", records[i]["THEME"]);
-			label.setObjectText("BARCODE", records[i]["BARCODE"]);
-//                    var pngData = label.render();
-//
-//                    var labelImage = document.getElementById('img' + (i + 1));
-//                    labelImage.src = "data:image/png;base64," + pngData;
-               		label.print(printersSelect.value);  
+	
+		var imgfile = records[i]["BARCODE"];
+		$.get(imgfile, function(qr)
+                {
+                    try
+                    {
+                        label.setObjectText("BARCODE", qr);
+
+                        label.print(printersSelect.value);  
+                    }
+                    catch(e)
+                    {
+                        alert(e.message || e);
+                    }
+                }, "text");
+			
+			
+//			label.setObjectText("BARCODE", records[i]["BARCODE"]);
+
+//               		label.print(printersSelect.value);  
 		}
 		     
             }
