@@ -39,10 +39,14 @@
 
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
+		var imageurl = entry.gsx$imageurl.$t;
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
+		    
+		getImage(imageurl);
+		//record.setText("BARCODE", imageurl);
             }
 
             return labelSet;
@@ -74,6 +78,50 @@
                 jsonScript.parentNode.removeChild(jsonScript);
         };
 
+	    
+  function getImage(url)
+        {
+            try
+            {
+                var img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = function()
+                {
+                    try
+                    {
+                        var canvas = document.createElement('canvas');
+                        canvas.width = img.width;                     
+                        canvas.height = img.height;
+
+                        var context = canvas.getContext('2d');
+                        context.drawImage(img, 0, 0);
+
+                        var dataUrl = canvas.toDataURL('image/png');
+                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
+
+                        record.setText("BARCODE", pngBase64);
+                    }
+                    catch(e)
+                    {
+                        alert(e.message || e);
+                    }
+                };
+                img.onerror = function()
+                {
+                    alert('Unable to load qr-code image');                    
+                };
+     
+                img.src = "'"+url+"'";
+		
+            }
+            catch(e)
+            {
+                alert(e.message || e);
+            }
+        }	    
+	    
+	    
+	    
         function getBarcodeLabelXml()
         {
 
@@ -254,6 +302,7 @@
                 if (!labelSet)
                     throw "Label data is not loaded";
 
+		//getImage();
                 label.print(printersSelect.value, '', labelSet);
 //                var records = labelSet.getRecords();
 //                for (var i = 0; i < records.length; ++i)
