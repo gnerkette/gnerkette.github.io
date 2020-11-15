@@ -291,6 +291,7 @@
 
                       //label.setObjectText('BARCODE', pngBase64);
                        label.setObjectText('BARCODE', pngBase64);
+                       label.print(printersSelect.value);
                     }
                     catch(e)
                     {
@@ -303,7 +304,7 @@
                 };
                 img.src = records[i]["BARCODE"];
            
-		label.print(printersSelect.value, '', label);
+		
             }
 	    catch(e)
 	    {
