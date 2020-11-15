@@ -305,10 +305,7 @@
            
 		label.print(printersSelect.value, '', label);
             }
-            catch (e)
-            {
-                alert(e.message || e);
-            }
+
         };
 
         loadLabel();
