@@ -307,7 +307,7 @@
             }
 	    catch(e)
 	    {
-		    alert(e.message || e);
+		    throw "This is dumb";
 	    }
         };
 
