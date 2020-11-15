@@ -297,7 +297,7 @@
                     label.setObjectText("THEME", records[i]["THEME"]);
 		    label.setObjectText("BARCODE", records[i]["BARCODE"]);
 	
-		label.print(printersSelect.value);
+		label.print(printersSelect.value, '', labelSet);
             }
 	    }
             catch(e)
