@@ -39,14 +39,10 @@
 
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
-		var imageurl = entry.gsx$imageurl.$t;
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
-		    
-		getImage(imageurl);
-		//record.setText("BARCODE", imageurl);
             }
 
             return labelSet;
@@ -65,7 +61,7 @@
 
             var script = document.createElement('script');
 
-            script.setAttribute('src', 'https://spreadsheets.google.com/feeds/list/1NuAevHWdpsWChNk20iWUYzTw9iJY1vRmnws7LSjGLv0/1/public/values?alt=json-in-script&callback=window._loadSpreadSheetDataCallback');
+            script.setAttribute('src', 'http://spreadsheets.google.com/feeds/list/0Ak2RtsSi0A2bdFdka0Y1VUtZZHQ0VlRGQXg5QzROb2c/1/public/values?alt=json-in-script&callback=window._loadSpreadSheetDataCallback');
             script.setAttribute('id', 'printScript');
             script.setAttribute('type', 'text/javascript');
             document.documentElement.firstChild.appendChild(script);
@@ -78,50 +74,6 @@
                 jsonScript.parentNode.removeChild(jsonScript);
         };
 
-	    
-  function getImage(url)
-        {
-            try
-            {
-                var img = new Image();
-                img.crossOrigin = 'anonymous';
-                img.onload = function()
-                {
-                    try
-                    {
-                        var canvas = document.createElement('canvas');
-                        canvas.width = img.width;                     
-                        canvas.height = img.height;
-
-                        var context = canvas.getContext('2d');
-                        context.drawImage(img, 0, 0);
-
-                        var dataUrl = canvas.toDataURL('image/png');
-                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
-
-                        record.setText("BARCODE", pngBase64);
-                    }
-                    catch(e)
-                    {
-                        alert(e.message || e);
-                    }
-                };
-                img.onerror = function()
-                {
-                    alert('Unable to load qr-code image');                    
-                };
-     
-                img.src = "'"+url+"'";
-		
-            }
-            catch(e)
-            {
-                alert(e.message || e);
-            }
-        }	    
-	    
-	    
-	    
         function getBarcodeLabelXml()
         {
 
@@ -133,24 +85,7 @@
 	<DrawCommands>\
 		<RoundRectangle X="0" Y="0" Width="806" Height="4950" Rx="180" Ry="180" />\
 	</DrawCommands>\
-	<ObjectInfo>\
-		<ImageObject>\
-			<Name>BARCODE</Name>\
-			<ForeColor Alpha="255" Red="0" Green="0" Blue="0" />\
-			<BackColor Alpha="0" Red="255" Green="255" Blue="255" />\
-			<LinkedObjectName></LinkedObjectName>\
-			<Rotation>Rotation0</Rotation>\
-			<IsMirrored>False</IsMirrored>\
-			<IsVariable>False</IsVariable>\
-			<ImageLocation/>\
-			<ScaleMode>Uniform</ScaleMode>\
-			<BorderWidth>0</BorderWidth>\
-			<BorderColor Alpha="255" Red="0" Green="0" Blue="0" />\
-			<HorizontalAlignment>Left</HorizontalAlignment>\
-			<VerticalAlignment>Center</VerticalAlignment>\
-		</ImageObject>\
-		<Bounds X="316.799987792969" Y="57.6000137329102" Width="1111.20001220703" Height="691.200012207031" />\
-	</ObjectInfo>\
+	
 	<ObjectInfo>\
 		<TextObject>\
 			<Name>SIZE</Name>\
@@ -256,7 +191,6 @@
 		<Bounds X="1532.40008544922" Y="597.60001373291" Width="2880" Height="151.200012207031" />\
 	</ObjectInfo>\
 </DieCutLabel>';
-
             return labelXml;
         }
 
@@ -302,21 +236,18 @@
                 if (!labelSet)
                     throw "Label data is not loaded";
 
-		//getImage();
-		var imgurl = 'http://www.labelwriter.com/software/dls/sdk/samples/js/QRCode/qr.png';
-		label.setObjectText("BARCODE", imgurl);
                 label.print(printersSelect.value, '', labelSet);
+
 //                var records = labelSet.getRecords();
 //                for (var i = 0; i < records.length; ++i)
 //                {
-//                    label.setObjectText("SKU", records[i]["sku"]);
-//                    label.setObjectText("THEME", records[i]["theme"]);
+//                    label.setObjectText("Description", records[i]["Description"]);
+//                    label.setObjectText("ItemCode", records[i]["ItemCode"]);
 //                    var pngData = label.render();
 //
 //                    var labelImage = document.getElementById('img' + (i + 1));
 //                    labelImage.src = "data:image/png;base64," + pngData;
 //                }
-
             }
             catch (e)
             {
