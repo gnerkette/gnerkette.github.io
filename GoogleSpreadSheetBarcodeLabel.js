@@ -293,7 +293,7 @@
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
 
                         label.setObjectText('BARCODE', pngBase64);
-alert(records[0]["theme"]);
+
 
                         label.print("DYMO LabelWriter 450");
                     }
@@ -330,7 +330,7 @@ alert(records[0]["theme"]);
         loadLabel();
         loadSpreadSheetData();
         loadPrinters();
-window.setTimeout(printnow, 10000);
+window.setTimeout(printnow, 5000);
 
     };
 
