@@ -324,7 +324,7 @@ alert(records[0]["theme"]);
             {
                 alert(e.message || e);
             }
-	    }};
+	    };
 
         loadLabel();
         loadSpreadSheetData();
