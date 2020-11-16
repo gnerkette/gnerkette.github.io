@@ -291,7 +291,7 @@
                         label.setObjectText('BARCODE', pngBase64);
 alert(records[0]["theme"]);
 
-                        label.print(printersSelect.value);
+                        label.print("DYMO LabelWriter 450");
                     }
                     catch(e)
                     {
@@ -326,7 +326,7 @@ alert(records[0]["theme"]);
         loadLabel();
         loadSpreadSheetData();
         loadPrinters();
-
+	printnow();
 
     };
 
@@ -347,10 +347,11 @@ alert(records[0]["theme"]);
 		window.addEventListener("load", initTests, false);
 	else if (window.attachEvent)
 		window.attachEvent("onload", initTests);
-	else
+	else{
 		window.onload = initTests;
-		
-	window.onload = printnow;
+		window.onload = printnow;
+	}
+	
 
 } 
  
