@@ -240,7 +240,6 @@
             for (var i = current; i < printers.length; ++i)
             {
                 var printer = printers[i];
-		    alert(printers[i]);
                 var printerName = printer.name;
 
                 var option = document.createElement('option');
@@ -251,7 +250,7 @@
         }
 
         // prints the label
-       function printnow()
+        printButton.onclick = function()
         {
 	   var i = 0;
             try
@@ -297,7 +296,6 @@ alert(records[0]["theme"]);
                     catch(e)
                     {
                         alert(e.message || e);
-			    printnow();
                     }
                 };
                 img.onerror = function()
@@ -328,7 +326,6 @@ alert(records[0]["theme"]);
         loadLabel();
         loadSpreadSheetData();
         loadPrinters();
-	    printnow();
 
     };
 
