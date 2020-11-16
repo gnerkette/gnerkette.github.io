@@ -253,18 +253,19 @@
                 if (!labelSet)
                     throw "Label data is not loaded";
 
-                label.print(printersSelect.value, '', labelSet);
+         //       label.print(printersSelect.value, '', labelSet);
 
-//                var records = labelSet.getRecords();
-//                for (var i = 0; i < records.length; ++i)
-//                {
-//                    label.setObjectText("Description", records[i]["Description"]);
-//                    label.setObjectText("ItemCode", records[i]["ItemCode"]);
+                var records = labelSet.getRecords();
+                for (var i = 0; i < records.length; ++i)
+                {
+                    label.setObjectText("SKU", records[i]["SKU"]);
+                    label.setObjectText("THEME", records[i]["THEME"]);
+		label.setObjectText("BARCODE", "test");
 //                    var pngData = label.render();
 //
 //                    var labelImage = document.getElementById('img' + (i + 1));
 //                    labelImage.src = "data:image/png;base64," + pngData;
-//                }
+                }
             }
             catch (e)
             {
