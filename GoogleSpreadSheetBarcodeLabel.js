@@ -259,7 +259,8 @@
 		    alert(records[0]["SKU"]);
                 for (var i = 0; i < records.length; ++i)
                 {
-			
+		  	label.setObjectText('THEME', records[i]["THEME"]);
+			label.setObjectText('SKU', records[i]["SKU"]);	
 		   var img = new Image();
                 img.crossOrigin = 'anonymous';
                 img.onload = function()
@@ -278,8 +279,7 @@
 
                         label.setObjectText('BARCODE', pngBase64);
 alert(records[0]["theme"]);
-                    label.setObjectText('THEME', records[i]["THEME"]);
-			label.setObjectText('SKU', records[i]["SKU"]);
+
                         barcodeAsImageLabel.print(printersSelect.value);
                     }
                     catch(e)
