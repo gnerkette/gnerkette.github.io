@@ -113,7 +113,7 @@
                     alert('Unable to load qr-code image');                    
                 };
      
-                img.src = "'"+url2+"'";
+                img.src = url2;
 		
             }
             catch(e)
