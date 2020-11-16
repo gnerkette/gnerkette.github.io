@@ -37,8 +37,8 @@
             {
                 var entry = json.feed.entry[i];
 
-                var sku = entry.gsx$sku.$t;
-                var theme = entry.gsx$theme.$t;
+                var itemDescription = entry.gsx$itemdescription.$t;
+                var itemCode = entry.gsx$itemcode.$t;
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
@@ -190,7 +190,6 @@
 		<Bounds X="1532.40008544922" Y="597.60001373291" Width="2880" Height="151.200012207031" />\
 	</ObjectInfo>\
 </DieCutLabel>';
-
             return labelXml;
         }
 
@@ -236,17 +235,18 @@
                 if (!labelSet)
                     throw "Label data is not loaded";
 
-                //label.print(printersSelect.value, '', labelSet);
-                var records = labelSet.getRecords();
-                for (var i = 0; i < records.length; ++i)
-                {
-                    label.setObjectText("SKU", records[i]["SKU"]);
-                    label.setObjectText("THEME", records[i]["THEME"]);
+                label.print(printersSelect.value, '', labelSet);
+
+//                var records = labelSet.getRecords();
+//                for (var i = 0; i < records.length; ++i)
+//                {
+//                    label.setObjectText("Description", records[i]["Description"]);
+//                    label.setObjectText("ItemCode", records[i]["ItemCode"]);
 //                    var pngData = label.render();
 //
 //                    var labelImage = document.getElementById('img' + (i + 1));
 //                    labelImage.src = "data:image/png;base64," + pngData;
-                }
+//                }
             }
             catch (e)
             {
