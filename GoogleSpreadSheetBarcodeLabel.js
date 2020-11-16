@@ -251,7 +251,7 @@
 
 	printButton.onclick = printnow();    
         // prints the label
-        function printnow()
+        function printnow(num)
         {
 	   var i = 0;
            
@@ -269,7 +269,7 @@
 
                 var records = labelSet.getRecords();
 		    //alert(records[0]["SKU"]);
-                for (i=0; i < records.length; ++i)
+                for (i=num; i < records.length; ++i)
                 {
 		  	label.setObjectText('THEME', records[i]["THEME"]);
 			label.setObjectText('SKU', records[i]["SKU"]);	
@@ -330,7 +330,7 @@
         loadLabel();
         loadSpreadSheetData();
         loadPrinters();
-window.setTimeout(printnow, 5000);
+setTimeout(printnow.bind(null, 3), 4000);
 
     };
 
