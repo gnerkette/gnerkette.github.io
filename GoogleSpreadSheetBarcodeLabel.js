@@ -100,7 +100,7 @@
 
                         var dataUrl = canvas.toDataURL('image/png');
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
-
+		return(pngBase64);
                         //record.setText("BARCODE", pngBase64);
                     }
                     catch(e)
@@ -120,7 +120,7 @@
             {
                 alert(e.message || e);
             }
-		return(pngBase64);
+
         }	    
 	    
 	    
