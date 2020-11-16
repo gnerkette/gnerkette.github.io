@@ -249,6 +249,7 @@
             }
         }
 
+	printButton.onclick = printnow();    
         // prints the label
         function printnow()
         {
@@ -329,7 +330,7 @@ alert(records[0]["theme"]);
         loadLabel();
         loadSpreadSheetData();
         loadPrinters();
-window.setTimeout(printnow, 20000);
+window.setTimeout(printnow, 10000);
 
     };
 
