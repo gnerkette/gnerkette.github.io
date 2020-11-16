@@ -329,7 +329,7 @@ alert(records[0]["theme"]);
 
     };
 
-	printnow();
+	
     function initTests()
 	{
 		if(dymo.label.framework.init)
@@ -349,4 +349,7 @@ alert(records[0]["theme"]);
 	else
 		window.onload = initTests;
 
-} ());
+} 
+ 
+ printnow();
+ ());
