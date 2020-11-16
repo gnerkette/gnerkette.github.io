@@ -39,15 +39,10 @@
 
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
-		var imageurl = entry.gsx$imageurl.$t;
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
-		    
-		var actualimage = getImage(imageurl);
-		    alert(actualimage);
-		record.setText("BARCODE", actualimage);
             }
 
             return labelSet;
@@ -79,53 +74,6 @@
                 jsonScript.parentNode.removeChild(jsonScript);
         };
 
-	    
-  function getImage(url2)
-        {
-
-	
-		try
-            {
-                var img = new Image();
-                img.crossOrigin = 'anonymous';
-                img.onload = function()
-                {
-                    try
-                    {
-                        var canvas = document.createElement('canvas');
-                        canvas.width = img.width;                     
-                        canvas.height = img.height;
-
-                        var context = canvas.getContext('2d');
-                        context.drawImage(img, 0, 0);
-
-                        var dataUrl = canvas.toDataURL('image/png');
-                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
-		return(pngBase64);
-                        //record.setText("BARCODE", pngBase64);
-                    }
-                    catch(e)
-                    {
-                        alert(e.message || e);
-                    }
-                };
-                img.onerror = function()
-                {
-                    alert('Unable to load qr-code image');                    
-                };
-     
-                img.src = url2;
-		
-            }
-            catch(e)
-            {
-                alert(e.message || e);
-            }
-
-        }	    
-	    
-	    
-	    
         function getBarcodeLabelXml()
         {
 
@@ -146,7 +94,7 @@
 			<Rotation>Rotation0</Rotation>\
 			<IsMirrored>False</IsMirrored>\
 			<IsVariable>False</IsVariable>\
-			<ImageLocation/>\
+			<ImageLocation>700646496624.jpg</ImageLocation>\
 			<ScaleMode>Uniform</ScaleMode>\
 			<BorderWidth>0</BorderWidth>\
 			<BorderColor Alpha="255" Red="0" Green="0" Blue="0" />\
@@ -306,8 +254,8 @@
                 if (!labelSet)
                     throw "Label data is not loaded";
 
-		//getImage();
                 label.print(printersSelect.value, '', labelSet);
+
 //                var records = labelSet.getRecords();
 //                for (var i = 0; i < records.length; ++i)
 //                {
@@ -318,7 +266,6 @@
 //                    var labelImage = document.getElementById('img' + (i + 1));
 //                    labelImage.src = "data:image/png;base64," + pngData;
 //                }
-
             }
             catch (e)
             {
