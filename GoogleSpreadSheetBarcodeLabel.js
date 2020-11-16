@@ -24,6 +24,7 @@
     var label;
     var labelSet;
     var upcimages;
+	var current= 0;
 
     function onload()
     {
@@ -34,7 +35,7 @@
         {
             var labelSet = new dymo.label.framework.LabelSetBuilder();
          
-            for (var i = 0; i < json.feed.entry.length; ++i)
+            for (var i = current; i < json.feed.entry.length; ++i)
             {
                 var entry = json.feed.entry[i];
 
@@ -236,7 +237,7 @@
                 return;
             }
 
-            for (var i = 0; i < printers.length; ++i)
+            for (var i = current; i < printers.length; ++i)
             {
                 var printer = printers[i];
                 var printerName = printer.name;
