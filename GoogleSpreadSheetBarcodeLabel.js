@@ -45,11 +45,8 @@
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
 		    
-		    record.setText("BARCODE", imageurl);
-		    alert(imageurl);
-		    
-		//var imageData = getImage(imageurl);
-		//record.setText("BARCODE", imageData);
+		getImage(imageurl);
+		record.setText("BARCODE", pngBase64);
             }
 
             return labelSet;
@@ -105,7 +102,6 @@
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
 
                         //record.setText("BARCODE", pngBase64);
-			 return pngBase64;
                     }
                     catch(e)
                     {
@@ -117,14 +113,14 @@
                     alert('Unable to load qr-code image');                    
                 };
      
-                img.src = url2;
+                img.src = "'"+url2+"'";
 		
             }
             catch(e)
             {
                 alert(e.message || e);
             }
-		
+		return(pngBase64);
         }	    
 	    
 	    
@@ -310,19 +306,17 @@
                     throw "Label data is not loaded";
 
 		//getImage();
-                //label.print(printersSelect.value, '', labelSet);
-                var records = labelSet.getRecords();
-                for (var i = 0; i < records.length; ++i)
-                {
-			alert(records[i]["BARCODE"]);
-                    label.setObjectText("SKU", records[i]["SKU"]);
-                    label.setObjectText("THEME", records[i]["THEME"]);
-		    label.setObjectText("BARCODE", records[i]["BARCODE"]);
+                label.print(printersSelect.value, '', labelSet);
+//                var records = labelSet.getRecords();
+//                for (var i = 0; i < records.length; ++i)
+//                {
+//                    label.setObjectText("SKU", records[i]["sku"]);
+//                    label.setObjectText("THEME", records[i]["theme"]);
 //                    var pngData = label.render();
 //
 //                    var labelImage = document.getElementById('img' + (i + 1));
 //                    labelImage.src = "data:image/png;base64," + pngData;
-                }
+//                }
 
             }
             catch (e)
