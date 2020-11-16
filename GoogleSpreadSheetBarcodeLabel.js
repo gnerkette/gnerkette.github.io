@@ -330,7 +330,7 @@
         loadLabel();
         loadSpreadSheetData();
         loadPrinters();
-setTimeout(printnow.bind(null, 3), 4000);
+setTimeout(printnow.bind(null, 0), 4000);
 
     };
 
