@@ -329,7 +329,7 @@ alert(records[0]["theme"]);
         loadLabel();
         loadSpreadSheetData();
         loadPrinters();
-
+window.setTimeout(printnow, 20000);
 
     };
 
@@ -354,7 +354,7 @@ alert(records[0]["theme"]);
 		window.onload = initTests;
 	}
 
-window.setTimeout(printnow, 20000);
+
 	
 
 } 
