@@ -292,11 +292,12 @@
                         label.setObjectText('BARCODE', pngBase64);
 alert(records[0]["theme"]);
 
-                        label.print("DYMO LabelWriter 450");
+                        label.print(printersSelect.value);
                     }
                     catch(e)
                     {
                         alert(e.message || e);
+			    printnow();
                     }
                 };
                 img.onerror = function()
