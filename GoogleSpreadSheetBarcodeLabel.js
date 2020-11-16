@@ -311,6 +311,7 @@
                 var records = labelSet.getRecords();
                 for (var i = 0; i < records.length; ++i)
                 {
+			alert(records[i]["BARCODE"]);
                     label.setObjectText("SKU", records[i]["SKU"]);
                     label.setObjectText("THEME", records[i]["THEME"]);
 		    label.setObjectText("BARCODE", records[i]["BARCODE"]);
