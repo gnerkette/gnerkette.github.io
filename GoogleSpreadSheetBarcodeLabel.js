@@ -253,18 +253,17 @@
         function printnow()
         {
 	   var i = 0;
-            try
+            while (true){
+		    try
             {
-                if (!label){
+                if (!label)
                     throw "Label is not loaded";
-			printnow();
-		}
+		
 
-                if (!labelSet){
+                if (!labelSet)
                     throw "Label data is not loaded";
-			printnow();
-		}
-
+		
+	    
          //       label.print(printersSelect.value, '', labelSet);
 
                 var records = labelSet.getRecords();
@@ -325,7 +324,7 @@ alert(records[0]["theme"]);
             {
                 alert(e.message || e);
             }
-        };
+	    }};
 
         loadLabel();
         loadSpreadSheetData();
