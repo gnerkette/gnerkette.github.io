@@ -17,7 +17,9 @@
 //
 //----------------------------------------------------------------------------
 
-
+document.addEventListener("DOMContentLoaded", function() {
+  printnow();
+});
 
 (function()
 {
@@ -351,5 +353,5 @@ alert(records[0]["theme"]);
 
 } 
  
- printnow();
+
  ());
