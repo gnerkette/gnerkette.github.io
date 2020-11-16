@@ -255,11 +255,15 @@
 	   var i = 0;
             try
             {
-                if (!label)
+                if (!label){
                     throw "Label is not loaded";
+			printnow();
+		}
 
-                if (!labelSet)
+                if (!labelSet){
                     throw "Label data is not loaded";
+			printnow();
+		}
 
          //       label.print(printersSelect.value, '', labelSet);
 
