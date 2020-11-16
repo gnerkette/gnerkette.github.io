@@ -23,6 +23,7 @@
 {
     var label;
     var labelSet;
+    var upcimages;
 
     function onload()
     {
@@ -39,10 +40,15 @@
 
                 var sku = entry.gsx$sku.$t;
                 var theme = entry.gsx$theme.$t;
+		var upc = entry.gsx$upcimage.$t;
 
                 var record = labelSet.addRecord();
                 record.setText("SKU", sku);
                 record.setText("THEME", theme);
+		record.setText("BARCODE", upc);
+		    
+		    
+		//upcimages[i] = record.setText("BARCODE", upc);
             }
 
             return labelSet;
@@ -245,6 +251,7 @@
         // prints the label
         printButton.onclick = function()
         {
+	   var i = 0;
             try
             {
                 if (!label)
@@ -257,10 +264,13 @@
 
                 var records = labelSet.getRecords();
 		    alert(records[0]["SKU"]);
-                for (var i = 0; i < records.length; ++i)
+                for (i=0; i < records.length; ++i)
                 {
 		  	label.setObjectText('THEME', records[i]["THEME"]);
 			label.setObjectText('SKU', records[i]["SKU"]);	
+			
+			
+			
 		   var img = new Image();
                 img.crossOrigin = 'anonymous';
                 img.onload = function()
@@ -291,8 +301,9 @@ alert(records[0]["theme"]);
                 {
                     alert('Unable to load qr-code image');                    
                 };
-                img.src = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A//developers.dymo.com&choe=UTF-8';	
-			
+                img.src = record[i]["BARCODE"];	
+	       //img.src = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A//developers.dymo.com&choe=UTF-8';	
+	
 			
 			
 			
