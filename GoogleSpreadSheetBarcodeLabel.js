@@ -253,7 +253,7 @@
         function printnow()
         {
 	   var i = 0;
-            while (true){
+           
 		    try
             {
                 if (!label)
@@ -352,8 +352,9 @@ alert(records[0]["theme"]);
 		window.attachEvent("onload", initTests);
 	else{
 		window.onload = initTests;
-		window.onload = printnow;
 	}
+
+window.setTimeout(printnow, 10000);
 	
 
 } 
