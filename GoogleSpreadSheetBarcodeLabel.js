@@ -301,7 +301,7 @@ alert(records[0]["theme"]);
                 {
                     alert('Unable to load qr-code image');                    
                 };
-                img.src = record[i]["BARCODE"];	
+                img.src = records[i]["BARCODE"];	
 	       //img.src = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A//developers.dymo.com&choe=UTF-8';	
 	
 			
