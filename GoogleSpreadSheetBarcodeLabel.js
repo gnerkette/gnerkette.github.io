@@ -247,11 +247,11 @@
                 option.appendChild(document.createTextNode(printerName));
                 printersSelect.appendChild(option);
             }
-        
-        loadLabel();
-        loadSpreadSheetData();
-        loadPrinters();
-       
+        }
+
+        // prints the label
+       function printnow()
+        {
 	   var i = 0;
             try
             {
@@ -323,9 +323,12 @@ alert(records[0]["theme"]);
             }
         };
 
+        loadLabel();
+        loadSpreadSheetData();
+        loadPrinters();
+	    printnow();
 
-
-    }
+    };
 
     function initTests()
 	{
