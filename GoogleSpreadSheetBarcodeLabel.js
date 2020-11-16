@@ -277,8 +277,8 @@
 
                         label.setObjectText('BARCODE', pngBase64);
 
-                    label.setObjectText("THEME", records[i]["THEME"]);
-			label.setObjectText("SKU", records[i]["SKU"]);
+                    label.setObjectText('THEME', records[i]["THEME"]);
+			label.setObjectText('SKU', records[i]["SKU"]);
                         barcodeAsImageLabel.print(printersSelect.value);
                     }
                     catch(e)
