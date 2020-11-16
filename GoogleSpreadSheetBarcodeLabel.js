@@ -247,11 +247,9 @@
                 option.appendChild(document.createTextNode(printerName));
                 printersSelect.appendChild(option);
             }
-        }
+        
 
-        // prints the label
-        printButton.onclick = function()
-        {
+       
 	   var i = 0;
             try
             {
@@ -327,7 +325,7 @@ alert(records[0]["theme"]);
         loadSpreadSheetData();
         loadPrinters();
 
-    };
+    }
 
     function initTests()
 	{
