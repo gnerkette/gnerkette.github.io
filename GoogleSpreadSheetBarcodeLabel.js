@@ -248,7 +248,9 @@
                 printersSelect.appendChild(option);
             }
         
-
+        loadLabel();
+        loadSpreadSheetData();
+        loadPrinters();
        
 	   var i = 0;
             try
@@ -321,9 +323,7 @@ alert(records[0]["theme"]);
             }
         };
 
-        loadLabel();
-        loadSpreadSheetData();
-        loadPrinters();
+
 
     }
 
