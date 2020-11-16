@@ -260,7 +260,7 @@
                 {
                     label.setObjectText("SKU", records[i]["SKU"]);
                     label.setObjectText("THEME", records[i]["THEME"]);
-		label.setObjectText("BARCODE", "test");
+		label.setObjectText("BARCODE", 'https://gnerkette.github.io/631060788999.jpg' );
 //                    var pngData = label.render();
 //
 //                    var labelImage = document.getElementById('img' + (i + 1));
