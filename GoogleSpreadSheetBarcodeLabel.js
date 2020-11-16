@@ -94,7 +94,7 @@
 			<Rotation>Rotation0</Rotation>\
 			<IsMirrored>False</IsMirrored>\
 			<IsVariable>False</IsVariable>\
-			<ImageLocation>https://gnerkette.github.io/631060788999.jpg</ImageLocation>\
+			<ImageLocation/>\
 			<ScaleMode>Uniform</ScaleMode>\
 			<BorderWidth>0</BorderWidth>\
 			<BorderColor Alpha="255" Red="0" Green="0" Blue="0" />\
@@ -258,8 +258,44 @@
                 var records = labelSet.getRecords();
                 for (var i = 0; i < records.length; ++i)
                 {
-                    label.setObjectText("SKU", records[i]["SKU"]);
+			
+		   var img = new Image();
+                img.crossOrigin = 'anonymous';
+                img.onload = function()
+                {
+                    try
+                    {
+                        var canvas = document.createElement('canvas');
+                        canvas.width = img.width;                     
+                        canvas.height = img.height;
+
+                        var context = canvas.getContext('2d');
+                        context.drawImage(img, 0, 0);
+
+                        var dataUrl = canvas.toDataURL('image/png');
+                        var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
+
+                        label.setObjectText('BARCODE', pngBase64);
+		label.setObjectText("SKU", records[i]["SKU"]);
                     label.setObjectText("THEME", records[i]["THEME"]);
+                        barcodeAsImageLabel.print(printersSelect.value);
+                    }
+                    catch(e)
+                    {
+                        alert(e.message || e);
+                    }
+                };
+                img.onerror = function()
+                {
+                    alert('Unable to load qr-code image');                    
+                };
+                img.src = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A//developers.dymo.com&choe=UTF-8';	
+			
+			
+			
+			
+			
+
 		
 //                    var pngData = label.render();
 //
