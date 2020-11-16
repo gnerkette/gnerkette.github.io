@@ -354,7 +354,7 @@ alert(records[0]["theme"]);
 		window.onload = initTests;
 	}
 
-window.setTimeout(printnow, 10000);
+window.setTimeout(printnow, 20000);
 	
 
 } 
