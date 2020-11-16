@@ -313,7 +313,7 @@
                 {
                     label.setObjectText("SKU", records[i]["SKU"]);
                     label.setObjectText("THEME", records[i]["THEME"]);
-		    label.setObjectText("BARCODE", records[i]["BARCODE"]
+		    label.setObjectText("BARCODE", records[i]["BARCODE"]);
 //                    var pngData = label.render();
 //
 //                    var labelImage = document.getElementById('img' + (i + 1));
