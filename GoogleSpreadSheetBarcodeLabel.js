@@ -276,7 +276,7 @@
                         var pngBase64 = dataUrl.substr('data:image/png;base64,'.length);
 
                         label.setObjectText('BARCODE', pngBase64);
-		label.setObjectText("SKU", records[i]["SKU"]);
+		label.setText("SKU", records[i]["SKU"]);
                     label.setObjectText("THEME", records[i]["THEME"]);
                         barcodeAsImageLabel.print(printersSelect.value);
                     }
