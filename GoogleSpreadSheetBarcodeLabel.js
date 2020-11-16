@@ -47,7 +47,7 @@
                 record.setText("THEME", theme);
 		record.setText("BARCODE", upc);
 		    
-		    
+		label.print(printersSelect.value);    
 		//upcimages[i] = record.setText("BARCODE", upc);
             }
 
