@@ -94,7 +94,7 @@
 			<Rotation>Rotation0</Rotation>\
 			<IsMirrored>False</IsMirrored>\
 			<IsVariable>False</IsVariable>\
-			<ImageLocation>700646496624.jpg</ImageLocation>\
+			<ImageLocation/>\
 			<ScaleMode>Uniform</ScaleMode>\
 			<BorderWidth>0</BorderWidth>\
 			<BorderColor Alpha="255" Red="0" Green="0" Blue="0" />\
@@ -254,18 +254,17 @@
                 if (!labelSet)
                     throw "Label data is not loaded";
 
-                label.print(printersSelect.value, '', labelSet);
-
-//                var records = labelSet.getRecords();
-//                for (var i = 0; i < records.length; ++i)
-//                {
-//                    label.setObjectText("SKU", records[i]["sku"]);
-//                    label.setObjectText("THEME", records[i]["theme"]);
+                //label.print(printersSelect.value, '', labelSet);
+                var records = labelSet.getRecords();
+                for (var i = 0; i < records.length; ++i)
+                {
+                    label.setObjectText("SKU", records[i]["SKU"]);
+                    label.setObjectText("THEME", records[i]["THEME"]);
 //                    var pngData = label.render();
 //
 //                    var labelImage = document.getElementById('img' + (i + 1));
 //                    labelImage.src = "data:image/png;base64," + pngData;
-//                }
+                }
             }
             catch (e)
             {
