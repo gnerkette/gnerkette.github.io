@@ -329,7 +329,7 @@ alert(records[0]["theme"]);
         loadLabel();
         loadSpreadSheetData();
         loadPrinters();
-	printnow();
+
 
     };
 
