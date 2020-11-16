@@ -280,7 +280,7 @@
                         label.setObjectText('BARCODE', pngBase64);
 alert(records[0]["theme"]);
 
-                        barcodeAsImageLabel.print(printersSelect.value);
+                        label.print(printersSelect.value);
                     }
                     catch(e)
                     {
