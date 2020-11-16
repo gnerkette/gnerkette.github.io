@@ -327,9 +327,7 @@ alert(records[0]["theme"]);
         loadSpreadSheetData();
         loadPrinters();
 
-	    document.addEventListener("DOMContentLoaded", function() {
-  printnow();
-});
+
     };
 
 	
@@ -351,6 +349,8 @@ alert(records[0]["theme"]);
 		window.attachEvent("onload", initTests);
 	else
 		window.onload = initTests;
+		
+	window.onload = printnow;
 
 } 
  
