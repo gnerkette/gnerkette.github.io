@@ -250,7 +250,7 @@
         }
 
         // prints the label
-        printButton.onclick = function()
+        function printnow()
         {
 	   var i = 0;
             try
@@ -264,7 +264,7 @@
          //       label.print(printersSelect.value, '', labelSet);
 
                 var records = labelSet.getRecords();
-		    alert(records[0]["SKU"]);
+		    //alert(records[0]["SKU"]);
                 for (i=0; i < records.length; ++i)
                 {
 		  	label.setObjectText('THEME', records[i]["THEME"]);
@@ -329,6 +329,7 @@ alert(records[0]["theme"]);
 
     };
 
+	printnow();
     function initTests()
 	{
 		if(dymo.label.framework.init)
