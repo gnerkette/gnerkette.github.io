@@ -256,7 +256,7 @@
          //       label.print(printersSelect.value, '', labelSet);
 
                 var records = labelSet.getRecords();
-		    alert(records);
+		    alert(records[0]);
                 for (var i = 0; i < records.length; ++i)
                 {
 			
