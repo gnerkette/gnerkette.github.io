@@ -240,6 +240,7 @@
             for (var i = current; i < printers.length; ++i)
             {
                 var printer = printers[i];
+		    alert(printers[i]);
                 var printerName = printer.name;
 
                 var option = document.createElement('option');
